@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="w0key1337@gmail.com">
+    <title>Авторизация</title>
+</head>
+<body>
+    <div id="content" class="content">
+		<noscript><code>У вас отключен JavaScript! Регистрация отключена</code></noscript>
+        <div class="reg">
+            <a href="reg.html">Зарегистрироваться</a>
+        </div>
+
+        <form method="POST" id="ajax_login" action="">
+            <input type="text" name="login" placeholder="Ваш логин" required />
+            <input type="password" name="password" placeholder="Ваш пароль" required />
+            <button type="submit" id="signin">Войти</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/ajax.js"></script>
+</body>
+</html>
