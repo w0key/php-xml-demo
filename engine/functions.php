@@ -5,7 +5,7 @@ function clear($data){
 }
 
 function checkAuth($login, $password) {
-	$xml = simplexml_load_file('files/users.xml');
+	$xml = simplexml_load_file('users.xml');
     foreach($xml->user as $users) {
         $data = json_decode(json_encode($users), true);
 
@@ -18,7 +18,7 @@ function checkAuth($login, $password) {
 }
 
 function checkUsers($login, $email) {
-	$xml = simplexml_load_file('files/users.xml');
+	$xml = simplexml_load_file('users.xml');
     foreach($xml->user as $users) {
         $data = json_decode(json_encode($users), true);
 

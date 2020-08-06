@@ -1,14 +1,14 @@
 <?php
-include_once ('functions.php');
+include_once('functions.php');
 ob_start();
 session_start();
 
-$xml_file = simplexml_load_file('files/users.xml');
-$login = clear(@$_POST['login']);
-$password = clear(@$_POST['password']);
-$password2 = clear(@$_POST['password2']);
-$email = clear(@$_POST['email']);
-$name = clear(@$_POST['username']);
+$xml_file = simplexml_load_file('users.xml');
+$login = @$_POST['login'];
+$password = @$_POST['password'];
+$password2 = @$_POST['password2'];
+$email = @$_POST['email'];
+$name = @$_POST['username'];
 
 switch(@$_GET['m']) {
     default: break;
@@ -31,7 +31,7 @@ switch(@$_GET['m']) {
 
     case 'reg':
         $xml = new DOMDocument("1.0", "UTF-8");
-        $xml->load('files/users.xml');
+        $xml->load('users.xml');
         if(!$login || !$password || !$password2 || !$email || !$name) {
             echo json_encode([ 'status' => false, 'result' => 'Заполните необходимые данные!']);
         } else {
@@ -51,7 +51,7 @@ switch(@$_GET['m']) {
                     $userTag->appendChild($nameTag);
                     $usersTag->appendChild($userTag);
                     $xml->formatOutput = true;
-                    $xml->save('files/users.xml');
+                    $xml->save('users.xml');
                     echo json_encode([ 'status' => true]);
                 } else {
                     echo json_encode([ 'status' => false, 'result' => 'Пользователь с таким логином или почтой уже зарегистрирован!']);
